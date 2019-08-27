@@ -1,13 +1,56 @@
-
-exports.seed = function(knex) {
+//Dogs seed file 
+const faker = require('faker');
+exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('dogs').truncate()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('dogs').insert([
+        {
+          "kennel_id": faker.random.number({'min': 1, 'max': 3}) ,
+          "bio": faker.lorem.paragraph(),
+          "age": faker.random.number({'min': 1, 'max': 20}) ,
+          "size": 'small',
+          "male": faker.random.boolean() ,
+          "price": faker.random.number({'min': 0, 'max': 200}),
+          "img_url": faker.image.animals(), 
+        },
+        {
+          "kennel_id": faker.random.number({'min': 1, 'max': 3}) ,
+          "bio": faker.lorem.paragraph(),
+          "age": faker.random.number({'min': 1, 'max': 20}) ,
+          "size": 'medium',
+          "male": faker.random.boolean() ,
+          "price": faker.random.number({'min': 0, 'max': 200}),
+          "img_url": faker.image.animals(), 
+        },
+        {
+          "kennel_id": faker.random.number({'min': 1, 'max': 3}) ,
+          "bio": faker.lorem.paragraph(),
+          "age": faker.random.number({'min': 1, 'max': 20}) ,
+          "size": 'large',
+          "male": faker.random.boolean() ,
+          "price": faker.random.number({'min': 0, 'max': 200}),
+          "img_url": faker.image.animals(), 
+        },
+        {
+          "kennel_id": faker.random.number({'min': 1, 'max': 3}) ,
+          "bio": faker.lorem.paragraph(),
+          "age": faker.random.number({'min': 1, 'max': 20}) ,
+          "size": 'small',
+          "male": faker.random.boolean() ,
+          "price": faker.random.number({'min': 0, 'max': 200}),
+          "img_url": faker.image.animals(), 
+        },
+        {
+          "kennel_id": faker.random.number({'min': 1, 'max': 3}) ,
+          "bio": faker.lorem.paragraph(),
+          "age": faker.random.number({'min': 1, 'max': 20}) ,
+          "size": 'large',
+          "male": faker.random.boolean() ,
+          "price": faker.random.number({'min': 0, 'max': 200}),
+          "img_url": faker.image.animals(), 
+        }
       ]);
     });
-};
+}; 
